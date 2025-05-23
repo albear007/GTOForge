@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from solver import cfr  # placeholder for now
+from solver import cfr
 
 router = APIRouter()
 
