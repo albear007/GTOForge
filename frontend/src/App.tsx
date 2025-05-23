@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import HandSelector from './components/HandSelector'
 
 function App() {
   const [hero, setHero] = useState("");
@@ -12,10 +13,10 @@ function App() {
     const data = await res.json();
     setSolution(data.solution);
   };
-
+  
   return (
     <div className="min-h-screen bg-gray-100 p-8">
-      <h1 className="text-3xl font-bold mb-4">GTOForge Frontend</h1>
+      <h1 className="text-3xl font-bold mb-4">GTOForge</h1>
       <input
         type="text"
         placeholder="Hero Hand (e.g., AhKh)"
@@ -23,6 +24,8 @@ function App() {
         onChange={(e) => setHero(e.target.value)}
         className="p-2 border border-gray-300 mb-2 block"
       />
+      <HandSelector onSelect={(hand) => setHero(hand)} />
+    <p className="mt-2">Selected hand: {hero}</p>
       <input
         type="text"
         placeholder="Villain Hand (e.g., QsJh)"
