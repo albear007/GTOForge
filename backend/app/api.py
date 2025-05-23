@@ -1,14 +1,15 @@
 from fastapi import APIRouter
-from solver import cfr
 
 router = APIRouter()
 
 
+# Test route to check if the server is running!
 @router.get("/")
 def root():
     return {"message": "GTOForge backend is live."}
 
 
+# Route to solve a situation and return the solution.
 @router.post("/solve")
 def solve_hand(hero: str, villain: str):
     result = f"Mock solving: {hero} vs {villain}"
