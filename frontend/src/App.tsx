@@ -14,10 +14,10 @@ function App() {
   const [solution, setSolution] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [stackConfig, setStackConfig] = useState({
-    heroStack: 100,
-    villainStack: 100,
-    bigBlind: 2,
-    smallBlind: 1,
+    hero: 100,
+    villain: 100,
+    bb: 2,
+    sb: 1,
     ante: 0,
   });
   const [gameConfig, setGameConfig] = useState<{
