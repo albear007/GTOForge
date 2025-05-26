@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
-import HeroHandSelector from "./HandSelector";
+import HandMatrix from "./HandMatrix";
 
-export default function HandInputWithPopup({
+export default function HeroHandInput({
   value,
   onSelect,
 }: {
@@ -11,7 +11,6 @@ export default function HandInputWithPopup({
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Close on outside click
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
@@ -33,8 +32,10 @@ export default function HandInputWithPopup({
         className="p-2 border mb-4 block w-full rounded cursor-pointer"
       />
       {open && (
-        <div className="absolute z-20 top-full mt-1 p-1 rounded bg-gray-300 ">
-          <HeroHandSelector
+        <div className="absolute z-20 top-full mt-1 p-1 rounded bg-gray-300">
+          <HandMatrix
+            mode="single"
+            value={value}
             onSelect={(hand) => {
               onSelect(hand);
               setOpen(false);
