@@ -1,4 +1,4 @@
-interface SolverOutput {
+export interface SolverOutput {
   bestAction: string;
   ev: number;
   explanation: string;

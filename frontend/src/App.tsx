@@ -7,11 +7,12 @@ import StackConfig from "./components/StackConfig";
 import GameTypePosition from "./components/GameTypePosition";
 import BoardInput from "./components/BoardInput";
 import BetSizingConfig from "./components/BetSizingConfig";
+import type { SolverOutput } from "./components/ResultCard"; // make sure to export it
 
 function App() {
   const [hero, setHero] = useState("");
   const [villainRange, setVillainRange] = useState<Record<string, number>>({});
-  const [solution, setSolution] = useState<string | null>(null);
+  const [solution, setSolution] = useState<SolverOutput | null>(null);
   const [loading, setLoading] = useState(false);
   const [stackConfig, setStackConfig] = useState({
     hero: 100,

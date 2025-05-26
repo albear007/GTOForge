@@ -2,31 +2,31 @@
 import { useState } from "react";
 
 export default function StackConfig({
-  heroStack,
-  villainStack,
-  bigBlind,
-  smallBlind,
+  hero,
+  villain,
+  bb,
+  sb,
   ante,
   onChange,
 }: {
-  heroStack: number;
-  villainStack: number;
-  bigBlind: number;
-  smallBlind: number;
+  hero: number;
+  villain: number;
+  bb: number;
+  sb: number;
   ante: number;
   onChange: (config: {
-    heroStack: number;
-    villainStack: number;
-    bigBlind: number;
-    smallBlind: number;
+    hero: number;
+    villain: number;
+    bb: number;
+    sb: number;
     ante: number;
   }) => void;
 }) {
   const [localState, setLocalState] = useState({
-    heroStack,
-    villainStack,
-    bigBlind,
-    smallBlind,
+    hero,
+    villain,
+    bb,
+    sb,
     ante,
   });
 
@@ -45,8 +45,8 @@ export default function StackConfig({
           <span className="text-sm font-medium">Hero Stack (bb)</span>
           <input
             type="number"
-            value={localState.heroStack}
-            onChange={(e) => handleChange("heroStack", +e.target.value)}
+            value={localState.hero}
+            onChange={(e) => handleChange("hero", +e.target.value)}
             className="p-2 border rounded"
             min={1}
           />
@@ -56,8 +56,8 @@ export default function StackConfig({
           <span className="text-sm font-medium">Villain Stack (bb)</span>
           <input
             type="number"
-            value={localState.villainStack}
-            onChange={(e) => handleChange("villainStack", +e.target.value)}
+            value={localState.villain}
+            onChange={(e) => handleChange("villain", +e.target.value)}
             className="p-2 border rounded"
             min={1}
           />
@@ -67,8 +67,8 @@ export default function StackConfig({
           <span className="text-sm font-medium">Big Blind</span>
           <input
             type="number"
-            value={localState.bigBlind}
-            onChange={(e) => handleChange("bigBlind", +e.target.value)}
+            value={localState.bb}
+            onChange={(e) => handleChange("bb", +e.target.value)}
             className="p-2 border rounded"
             min={0.01}
           />
@@ -78,14 +78,14 @@ export default function StackConfig({
           <span className="text-sm font-medium">Small Blind</span>
           <input
             type="number"
-            value={localState.smallBlind}
-            onChange={(e) => handleChange("smallBlind", +e.target.value)}
+            value={localState.sb}
+            onChange={(e) => handleChange("sb", +e.target.value)}
             className="p-2 border rounded"
             min={0.01}
           />
         </label>
 
-        <label className="flex flex-col">
+        <label className="flex flex-col col-span-2">
           <span className="text-sm font-medium">Ante (optional)</span>
           <input
             type="number"
